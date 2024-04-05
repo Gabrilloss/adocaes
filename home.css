@@ -1,0 +1,338 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+
+header {
+    background-color: #FF8743;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+
+}
+
+footer {
+    background-color: #FF8743;
+    color: #fff;
+    text-align: center;
+    padding: 1em 0;
+    bottom: 0;
+    width: 100%;
+}
+
+nav {
+    display: flex;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 25px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #038FDE;
+    text-decoration: none;
+}
+
+.animal-list {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    list-style: none;
+    padding: 10px;
+    border: 1px solid #ccc;
+    z-index: 1000;
+}
+
+.animal-list li {
+    margin: 5px 0;
+    padding: 10px 0;
+}
+
+.animal-list li a {
+    color: #038FDE;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+.animal-list li a:hover {
+    color: #FF8743;
+    text-decoration: none;
+}
+
+nav .animal-dropdown:hover .animal-list {
+    display: block;
+}
+
+.logo {
+    width: 150px;
+    margin-right: 200px;
+}
+
+.profile-nav a {
+    margin-left: 200px;
+    display: flex;
+    align-items: center;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 100,
+  'GRAD' 200,
+  'opsz' 24;
+  font-size: 26px;
+  margin-right: 5px;
+}
+
+/* HOME */
+
+#animais-disponiveis-horizontal {
+    background-color: #ffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+div.banner {
+    background-color: #038FDE;
+    color: #fff;
+    text-align: center;
+    padding: 50px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+div.banner h1 {
+    font-size: 2em;
+}
+
+div.banner p {
+    font-size: 1.2em;
+}
+
+/*CARROSSEL*/
+#animais-disponiveis-horizontal {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.carrossel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100vh;
+    overflow: hidden;
+}
+
+.animal-carrossel {
+    flex: 0 0 500px;/* Largura flexível para cada card */
+    height: 550px; /* Altura fixa para cada card */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+    text-align: center;
+}
+
+
+.animal-carrossel button {
+    margin-top: auto;
+    background-color: #038FDE;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    margin: 0 auto;
+}
+
+.animal-carrossel p {
+    padding: 30px;
+    margin: 0 auto;
+}
+
+.animal-carrossel img {
+    width: 600px;
+    height: 400px; /* Defina a altura desejada para todas as imagens */
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+#prevBtn,
+#nextBtn {
+    color: #FF8743;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#prevBtn {
+    left: 10px;
+    margin-left: 45vh;
+}
+
+#nextBtn {
+    right: 10px;
+    margin-right: 45vh;
+}
+
+
+
+
+/*BOTÃO VER MAIS*/
+
+#animais-disponiveis-horizontal button {
+    background-color: #038FDE;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Adiciona estilo ao botão quando hover */
+#animais-disponiveis-horizontal button:hover {
+    background-color: #FF8743;
+}
+
+
+#animais-disponiveis-horizontal button:hover {
+    background-color: #FF8743;
+}
+
+.botao-ver-mais {
+    font-family: 'Poppins', sans-serif;
+    width: 100px;
+    margin-top: 60px;
+}
+
+/*COMO ADOTAR*/
+
+#como-adotar {
+    background-color: #ffff;
+}
+
+.idade-docs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1200px; /* Ajuste conforme necessário */
+    margin: 0 auto; /* Centraliza a div na tela */
+}
+
+.texto-como-adotar,
+.idade-docs img {
+    flex: 1;
+    margin: 10px;
+}
+
+.texto-como-adotar p {
+    text-align: justify;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+}
+
+.texto-como-adotar h2 {
+    color: #FF8743;
+    margin-top: 10vh;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+
+.idade-docs img {
+    width: 100%; /* Define a largura da imagem como 100% */
+    max-width: 400px; /* Ajuste conforme necessário */
+    height: auto;
+}
+
+
+/*PORQUE ADOTAR*/
+
+.escolha-adotar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.texto-porque-adotar {
+    flex: 1;
+    margin: 10px;
+}
+
+.texto-porque-adotar h2 {
+    font-size: 40px;
+    color: #FF8743;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.texto-porque-adotar p {
+    text-align: justify;
+    font-size: 18px;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+}
+
+.escolha-adotar img {
+    flex: 1;
+    margin: 10px;
+    max-width: 100%;
+    height: auto;
+}
+
+.faca-um-animal-feliz {
+    font-size: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    color: #038FDE;
+    margin: 20px 0;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+    padding: 20px;
+}
+
+.faca-um-animal-feliz:hover {
+    color: #FF8743;
+    text-decoration: none;
+}
+
+
+
+
