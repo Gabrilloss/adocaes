@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="cadastro_usuario.css">
+
+
+    <title>Cadastro de Adoção</title>
+</head>
+
+<body>
+<div class="banner">
+    <img src="imagens\logologin.png" class="logo-login">
+</div>
+<div class="container">
+    <form method="post" action="cad_adotante.php" id="formularioCadastro">
+        <h1>CADASTRAR ADOTANTE</h1>
+        
+            <label for="">Nome:</label>
+            <input type="text" name="nome_usuario" placeholder="Digite seu nome" class="input_maior" required><br>
+            <label for="" >CPF:</label>
+            <input type="text" name="cpf_usuario" placeholder="Digite seu cpf" class="input_maior" id="cpfInput" required>
+            <br>
+            <label for="">Email:</label>
+            <input type="email" name="email_usuario" placeholder="Digite seu email" class="input_maior" required>
+            <br>
+            <label for="">Senha:</label>
+            <input type="password" name="senha_usuario" placeholder="Digite sua senha" class="input_maior" required>
+            <br>
+            <label for="">Telefone:</label>
+            <input type="tel" name="num_telefone" placeholder="Digite seu telefone" class="input_menor"  required>
+            <label for="">Bairro:</label>
+            <input type="text" name="bairro_usuario" placeholder="Digite seu bairro" class="input_menor"  required>
+            <br>
+            <label for="">Número:</label>
+            <input type="number" maxLength="6" name="num_adotante" placeholder="Digite o numero do seu endereço" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" class="input_menor" required>
+       
+            
+            <label for="">Cidade:</label>
+            <input type="text" name="cidade_adotante" placeholder="Digite o nome da sua cidade" class="input_menor" required>
+            <br>
+        
+
+        <label for="">Rua:</label>
+        <input type="text" name="rua_usuario" placeholder="Digite o nome da sua rua" class="input_maior" required>
+        <br>
+        <label for="estado">Estado:</label>
+        <select id="estado" name="estado_usuario">
+            <option value="AC">Acre</option>
+            <option value="AL">Alagoas</option>
+            <option value="AP">Amapá</option>
+            <option value="AM">Amazonas</option>
+            <option value="BA">Bahia</option>
+            <option value="CE">Ceará</option>
+            <option value="DF">Distrito Federal</option>
+            <option value="ES">Espírito Santo</option>
+            <option value="GO">Goiás</option>
+            <option value="MA">Maranhão</option>
+            <option value="MT">Mato Grosso</option>
+            <option value="MS">Mato Grosso do Sul</option>
+            <option value="MG">Minas Gerais</option>
+            <option value="PA">Pará</option>
+            <option value="PB">Paraíba</option>
+            <option value="PR">Paraná</option>
+            <option value="PE">Pernambuco</option>
+            <option value="PI">Piauí</option>
+            <option value="RJ">Rio de Janeiro</option>
+            <option value="RN">Rio Grande do Norte</option>
+            <option value="RS">Rio Grande do Sul</option>
+            <option value="RO">Rondônia</option>
+            <option value="RR">Roraima</option>
+            <option value="SC">Santa Catarina</option>
+            <option value="SP">São Paulo</option>
+            <option value="SE">Sergipe</option>
+            <option value="TO">Tocantins</option>
+        </select>
+        <label for="">CEP:</label>
+        <input type="text" name="cep_usuario" placeholder="Digite o numero do seu CEP" class="input_menor"  required>
+        <br>
+        <label for="">Url:</label>
+        <input type="text" name="url_usuario" placeholder="Digite o url da sua imagem" class="input_maior"  required>
+        <br>
+        
+        <input type="submit" value="Enviar">
+    </form>
+
+</div>
+
+<footer>
+    <p>&copy; 2024 Adocães - Todos os direitos reservados</p>
+</footer>
+<script src="cadastro_usuario.js" defer></script>
+</body>
+
+</html

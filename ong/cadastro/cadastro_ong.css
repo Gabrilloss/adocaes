@@ -1,0 +1,246 @@
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    overflow: hidden;
+}
+input[type=tel] {
+
+    width: 50%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 20px;
+
+}
+input[type=text] {
+
+    width: 50%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 20px;
+
+}
+input[type=number] {
+
+    width: 50%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 20px;
+
+}
+input[type=password] {
+
+    width: 50%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 20px;
+
+}
+.grupo{
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 20px; /* Adiciona espaço entre os campos de entrada */
+}
+select{
+    width: 53%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+select::content{
+    opacity: 0.5;
+}
+.row{
+        display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+}
+::-webkit-input-placeholder {
+    color: black;
+ }
+ .input_maior{
+    width: 60%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+ .grupo input{
+    width: 90%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+.grupo label{
+    display: block;
+    margin-bottom: 5px;
+}
+.parte1 .parte2 label {
+    display: block;
+    margin-bottom: 5px;
+    
+}
+form{
+    background-color: #fff;
+    width: 600px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 50px;
+}
+
+::-webkit-calendar-picker-indicator{
+    background-color: #ffffff;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+.botao {
+    margin: auto;
+    width: 30%;
+    padding: 10px;
+    background-color: #038FDE;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    /* margin-top: 500px;*/
+    justify-content: center;
+}
+input[type=submit]{
+    margin: auto;
+    width: 30%;
+    padding: 10px;
+    background-color: #038FDE;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+   /* margin-top: 500px;*/
+   justify-content: center;
+}
+.container
+{
+    min-width: 100%;
+    min-height: 70.7vh;
+    text-align: center;
+    color: #038FDE;
+}
+.animal-list {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    list-style: none;
+    padding: 10px;
+    border: 1px solid #ccc;
+    z-index: 1000;
+}
+
+.animal-list li {
+    margin: 5px 0;
+    padding: 10px 0;
+}
+
+.animal-list li a {
+    color: #038FDE;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    
+}
+input::placeholder {
+    opacity: 0.5 ;
+  }
+.animal-list li a:hover {
+    color: #FF8743;
+    text-decoration: none;
+}
+
+nav .animal-dropdown:hover .animal-list {
+    display: block;
+}
+
+.logo {
+    width: 150px;
+    margin-right: 200px;
+}
+
+.profile-nav a {
+    margin-left: 200px;
+    display: flex;
+    align-items: center;
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 100,
+    'GRAD' 200,
+    'opsz' 24;
+    font-size: 26px;
+    margin-right: 5px;
+  }
+  
+  footer {
+      background-color: #FF8743;
+      color: #fff;
+      text-align: center;
+      padding: 1em 0;
+      bottom: 0;
+      position: fixed ;
+      width: 100%;
+  }
+  .alinhar {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 25px;
+    border-color: blue;
+
+}
+div.banner {
+    background-color: #FF8743;
+    color: #fff;
+    text-align: center;
+    padding: 40px 0px;
+    padding-top: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    overflow: hidden;
+}
+.banner img {
+    height: 100px ;
+    transform: scale(2);
+}
+button:hover {
+    background-color: #FF8743;
+}
+
+.valid {
+    border-color: green;
+}
+.invalid {
+    border-color: red;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    display: none;
+}

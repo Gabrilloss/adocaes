@@ -1,0 +1,96 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    overflow: hidden;
+}
+
+footer {
+    background-color: #FF8743;
+    color: #fff;
+    text-align: center;
+    padding: 1em 0;
+    bottom: 0;
+    width: 100%;
+}
+
+/*TELA LOGIN*/
+
+.login {
+    background-color: #f4f4f4;
+    min-height: 90.7vh;
+    min-width: 100%;
+    text-align: center;
+    color: #038FDE;
+    
+}
+
+.formulario h2 {
+    font-size: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+div.banner {
+    background-color: #FF8743;
+    color: #fff;
+    text-align: center;
+    padding: 40px 0px;
+    padding-top: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    overflow: hidden;
+}
+
+.banner img {
+    height: 100px ;
+    transform: scale(2);
+}
+
+.formulario {
+    background-color: #fff;
+    width: 300px;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 50px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    
+}
+
+.input-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+
+button {
+    width: 30%;
+    padding: 10px;
+    background-color: #038FDE;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    
+}
+
+button:hover {
+    background-color: #FF8743;
+}

@@ -28,10 +28,10 @@
             <h1>CADASTRAR ANIMAL</h1>
             <div class="parte1">
                 <label for="">Nome:</label>
-                <input type="text" name="nomeAnimal" placeholder="Digite seu nome" required>
+                <input type="text" name="nomeAnimal" placeholder="Digite seu nome" class="input_maior" required>
                 <br>
                 <label for="">Raça:</label>
-                <input type="text" name="raca" placeholder="Digite a raça" required>
+                <input type="text" name="raca" placeholder="Digite a raça" class="input_maior"  required>
                 <br>
                 <label for="">Data de nascimento:  </label>
                 <input type="date" name="dataNascimento" required>
@@ -56,13 +56,24 @@
 
             </div>
             <div class="parte2">
-                <label for="">Cor:</label><br />
-                <input type="text" name="cor" placeholder="Digite a cor de seu animal" required>
-                <br>
-
+                <div id="caixa">
+                    <section id="cor">
+                    <label for="">Cor:</label><br>
+                    <input type="text" name="cor" placeholder="Digite a cor do animal"  id="corr" required>
+                    </section>
+                    <section id="tipoo">
+                    <label for="tipo">Tipo:</label><br>
+                    <select name="tipo" id="tipo" required>
+                        <option value="" selected disabled>Selecione o tipo: </option>
+                        <option value="C" >Cachorro</option>
+                        <option value="G" >Gato</option>
+                    </select>
+                    </section>
+                </div>
+                <br><br>
                 <label for="ONGs_idONG">ONGs:</label><br>
                 <select name="ONGs_idONG" id="ONGs_idONG" required>
-                    <option value="0">Selecione uma ong: </option>
+                    <option value="0" selected disabled>Selecione uma ong: </option>
                     <option value="1">Amor pelos patinhas</option>
                     <option value="2">Protetores do Bichano</option>
                     <option value="3">Anjos de Quatro Patas</option>
@@ -71,13 +82,13 @@
                 </select>
                 <br><br>
                 <label for="">Vacinas:</label><br />
-                <input type="text" name="vacinas" placeholder="Informe vacinas de seu animal" required>
+                <input type="text" name="vacinas" placeholder="Informe vacinas de seu animal" class="input_maior"  required>
                 <br>
                 <label for="">Observacao:</label><br />
-                <input type="text" name="observacao" placeholder="Digite observações do seu animal" required>
+                <input type="text" name="observacao" placeholder="Digite observações do seu animal" class="input_maior" required>
                 <br>
                 <label for="">Url:</label><br />
-                <input type="text" name="URLs_idURL" placeholder="Digite a url da imagem do seu animal">
+                <input type="text" name="URLs_idURL" placeholder="Digite a url da imagem do seu animal" class="input_maior" required>
 
             </div>
 

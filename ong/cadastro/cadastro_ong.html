@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="cadastro_ong.css">
+
+    <title>Cadastro de Adoção</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="banner">
+        <img src="..\..\imagens\logologin.png" class="logo-login">
+    </div>
+    <div class="container">
+        <form method="post" action="cad_ong.php" id="formularioOng">
+            <div id="step1">
+                <h1>CADASTRAR ONG</h1>
+                <label for="">Nome:</label><br>
+                <input type="text" name="nome_ong" placeholder="Digite o nome da ong" class="input_maior" required>
+                <br>
+                <label for="">CNPJ:</label><br>
+                <input type="text" name="cnpj_ong" placeholder="Digite seu cnpj" class="input_maior" id="cnpjInput" required>
+                <span id="cnpjError" class="error-message"></span>
+                <br>
+                <label for="">Senha:</label><br>
+                <input type="password" name="senha_ong" placeholder="Digite sua senha" class="input_maior" required>
+                <br>
+                <label for="">Site:</label><br>
+                <input type="text" name="site_ong" placeholder="Digite o site da sua ong" class="input_maior" required>
+                <br>
+                <label for="">Url:</label><br>
+                <input type="text" name="url_ong" placeholder="Digite o url da sua imagem" class="input_maior" required>
+                <br><br>
+                <button type="button" onclick="nextStep(1)" class="botao">Próximo</button>
+            </div>
+            <div id="step2" class="hidden">
+                <h1>PREENCHA SEU ENDEREÇO</h1>
+                <div class="row">
+                    <div class="grupo">
+                        <label for="">Telefone:</label>
+                        <input type="tel" name="num_telefone" placeholder="Digite seu telefone" class="input_menor" required>
+                    </div>
+                    <br>
+                    <div class="grupo">
+                        <label for="">Número:</label>
+                        <input type="number" maxLength="6" name="num_adotante" placeholder="Numero do seu endereço"
+                               oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                               class="input_menor" required>
+                    </div>
+                </div>
+                <label for="">Bairro:</label><br>
+                <input type="text" name="bairro_usuario" placeholder="Digite seu bairro" class="input_menor" required>
+                <br>
+                <label for="">Cidade:</label><br>
+                <input type="text" name="cidade_adotante" placeholder="Digite o nome da sua cidade" class="input_menor" required>
+                <br>
+                <label for="">Rua:</label><br>
+                <input type="text" name="rua_usuario" placeholder="Digite o nome da sua rua" class="input_maior" required>
+                <br>
+                <label for="estado">Estado:</label><br>
+                <select id="estado" name="estado_usuario">
+                    <option value="AC">Acre</option>
+                    <option value="AL">Alagoas</option>
+                    <option value="AP">Amapá</option>
+                    <option value="AM">Amazonas</option>
+                    <option value="BA">Bahia</option>
+                    <option value="CE">Ceará</option>
+                    <option value="DF">Distrito Federal</option>
+                    <option value="ES">Espírito Santo</option>
+                    <option value="GO">Goiás</option>
+                    <option value="MA">Maranhão</option>
+                    <option value="MT">Mato Grosso</option>
+                    <option value="MS">Mato Grosso do Sul</option>
+                    <option value="MG">Minas Gerais</option>
+                    <option value="PA">Pará</option>
+                    <option value="PB">Paraíba</option>
+                    <option value="PR">Paraná</option>
+                    <option value="PE">Pernambuco</option>
+                    <option value="PI">Piauí</option>
+                    <option value="RJ">Rio de Janeiro</option>
+                    <option value="RN">Rio Grande do Norte</option>
+                    <option value="RS">Rio Grande do Sul</option>
+                    <option value="RO">Rondônia</option>
+                    <option value="RR">Roraima</option>
+                    <option value="SC">Santa Catarina</option>
+                    <option value="SP">São Paulo</option>
+                    <option value="SE">Sergipe</option>
+                    <option value="TO">Tocantins</option>
+                </select><br>
+                <label for="">CEP:</label><br>
+                <input type="text" name="cep_usuario" placeholder="Digite o numero do seu CEP" class="input_menor" required>
+                <br>
+                <button type="button" onclick="nextStep(2)" class="botao">Anterior</button>
+                <button type="submit" class="botao">Enviar</button>
+            </div>
+        </form>
+    </div>
+    <footer>
+        <p>&copy; 2024 Adocães - Todos os direitos reservados</p>
+    </footer>
+    <script src="cadastro_ong.js" defer></script>
+    <script src="../../util_js/valida_cnpj.js"></script>
+</body>
+
+</html>

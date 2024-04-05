@@ -6,87 +6,213 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="home.css">
     <title>Home</title>
 </head>
 
 <body>
-    <header>
-        <nav>
+    <header id="siteHeader">
+        <nav id="mainMenu">
             <a href="home.html">
-            <img src="imagens\logo.png" class="logo">
+                <img src="imagens\logo.png" class="logo">
             </a>
             <a href="home.html">Página Inicial</a>
-            <div class="animal-dropdown">
-                <a href="adotar.html">Adotar</a>
-                <!-- Lista de animais -->
-                <ul class="animal-list">
-                    <li><a href="">Cachorro</a></li>
-                    <li><a href="">Gato</a></li>
-                </ul>
-            </div>
+            <a href="adotar.html">Adotar</a>
             <a href="#como-adotar">Como Adotar</a>
             <a href="#porque-adotar">Porque Adotar</a>
             <a href="ongs.html">ONGs Parceiras</a>
             <nav class="profile-nav">
-                <a href=""><span class="material-symbols-outlined"> person</span> Perfil</a>
+                <a href="#" onclick="toggleProfile()"><span id ='person' class="material-symbols-outlined"> person</span> Perfil</a>
             </nav>
         </nav>
-    </header>
+    </header>    
 
-    <div class="banner">
-        <h1>Adote um Amigo</h1>
-        <p>Encontre seu companheiro perfeito e faça a diferença na vida de um animal.</p>
+    <div class="overlay" id="overlay" onclick="closeProfile()" style="display:none;"></div>
+
+    <div class="profile-sidebar" id="profileSidebar" style="right: -100%;">
+        <div class="close-button" onclick="closeProfile()">X</div>
+        <div class="profile-content-top">
+            <div class="profile-picture-container">
+                <input type="file" id="uploadFile" style="display: none;" accept="image/*" onchange="mostrarImagemSelecionada()">
+                <img src="#" id="profilePicture" alt="Foto do Perfil">
+            </div>
+            <div class ="perfil-text">
+            <h2>Nome Completo</h2>
+            <h3>Adotante</h3>
+            <label for="uploadFile" class="alterar-foto">Alterar Foto</label>
+            </div>
+        </div>
+        <div class="topicos-perfil">
+            
+            <label for="sobre-mim">Sobre Mim</label>
+            <div class="input-botao">
+            <textarea maxlength="120" placeholder="Fale sobre você..." readonly></textarea>
+            <span id = 'stylus' class="material-symbols-outlined">stylus</span>
+            </div>
+
+            
+            <label for="email">E-mail</label>
+            <div class="input-botao">
+            <input type="email" id="email" name="email" readonly>
+            <span id = 'stylus' class="material-symbols-outlined">stylus</span>
+            </div>
+
+            
+            <label for="telefone">Telefone</label>
+            <div class="input-botao">
+            <input type="telefone" id="telefone" name="telefone" readonly>
+            <span id = 'stylus' class="material-symbols-outlined">stylus</span>
+            </div>
+
+            
+            <label for="cpf">CPF</label>
+            <div class="input-botao">
+            <input type="cpf" id="cpf" name="cpf" readonly>
+            </div>
+
+            <div class="botoes-perfil">
+            <button onclick="openPopup()" class="botao-alterar-senha">Alterar Senha</button>
+            <a href="login.html"><button class="botao-sair">Sair</button></a>
+            </div>
+
+            <!--POPUP-->
+                <div id="popup" class="popup">
+                        <form class="formulario">
+                            <span onclick="closePopup()" style="float:right;cursor:pointer;">&times;</span>
+                            <h1>Redefinir Senha</h1>
+                            <div class="input-group">
+                                <label for="username">Senha Atual:</label>
+                                <input type="text" id="username" name="username" required>
+                                <label for="password">Nova Senha:</label>
+                                <input type="password" id="password" name="password" required>
+                            </div>
+                            <button type="submit">Salvar</button>
+                        </form>
+                    </div>
+                </div>
     </div>
+
+<!--POP UP MAIS DETALHES (edgar)-->
 
     <!-- COMEÇO CARROSSEL -->
 
     <section id="animais-disponiveis-horizontal">
+        <div class="banner" id="primeiro-banner">
+            <h1>Adote um Amigo</h1>
+            <p>Encontre seu companheiro perfeito e faça a diferença na vida de um animal.</p>
+        </div>
         <div class="carrossel">
             <div class="animal-carrossel">
                 <img src="Imagens/gato1.jpeg" alt="Gato">
-                <p>Idade: </p>
-                <button onclick="mostrarDetalhes('Cachorro 1')">Mais Detalhes</button>
+                <p class="nome-animal">Edgar </p>
+                <p>Gênero: Feminino</p>
+                <p>Cidade: São paulo - SP</p>
+                <div class="botao-mais-detalhes">
+                <button onclick="mostrarDetalhes()">Mais Detalhes</button>
+                </div>
             </div>
             <div class="animal-carrossel">
-                <img src="Imagens/gato2.jpeg" alt="Gato">
-                <p>Idade: </p>
-                <button onclick="mostrarDetalhes('Cachorro 1')">Mais Detalhes</button>
+                <img src="Imagens/cachorro2.jpeg" alt="Cachorro">
+                <p class="nome-animal">João</p>
+                <p>Gênero: Masculino</p>
+                <p>Cidade: Diadema - SP</p>
+                <div class="botao-mais-detalhes">
+                <button onclick="mostrarDetalhes('Cachorro 2')">Mais Detalhes</button>
+                </div>
             </div>
             <div class="animal-carrossel">
                 <img src="Imagens/gato3.jpeg" alt="Gato">
-                <p>Idade: </p>
-                <button onclick="mostrarDetalhes('Cachorro 1')">Mais Detalhes</button>
+                <p class="nome-animal">Simba</p>
+                <p>Gênero: Masculino</p>
+                <p>Cidade: São Paulo - SP</p>
+                <div class="botao-mais-detalhes">
+                <button onclick="mostrarDetalhes('Gato 3')">Mais Detalhes</button>
+                </div>
             </div>
             <div class="animal-carrossel">
-                <img src="Imagens/gato4.jpeg" alt="Gato">
-                <p>Idade: </p>
-                <button onclick="mostrarDetalhes('Cachorro 1')">Mais Detalhes</button>
+                <img src="Imagens/cachorro3.jpeg" alt="Cachorro">
+                <p class="nome-animal"> Max</p>
+                <p>Gênero: Masculino</p>
+                <p>Cidade: SBC - SP</p>
+                <div class="botao-mais-detalhes">
+                <button onclick="mostrarDetalhes('Cachorro 3')">Mais Detalhes</button>
+                </div>
             </div>
-            
             <div class="animal-carrossel">
-                <img src="Imagens/cachorro1.jpeg" alt="Cachorro">
-                <p>Idade: </p>
-                <button onclick="mostrarDetalhes('Cachorro 1')">Mais Detalhes</button>
+                <img src="Imagens/gato5.jpeg" alt="Gato">
+                <p class="nome-animal"> Thor</p>
+                <p>Gênero: Masculino</p>
+                <p>Cidade: Santo André - SP</p>
+                <div class="botao-mais-detalhes">
+                <button onclick="mostrarDetalhes('Gato 5')">Mais Detalhes</button>
+                </div>
             </div>
             <div class="animal-carrossel">
                 <img src="Imagens/cachorro4.jpeg" alt="Cachorro">
-                <p>Idade: </p>
-                <button onclick="mostrarDetalhes('Cachorro 1')">Mais Detalhes</button>
+                <p class="nome-animal"> Thor</p>
+                <p>Gênero: Masculino</p>
+                <p>Cidade: São Paulo - SP</p>
+                <div class="botao-mais-detalhes">
+                <button onclick="mostrarDetalhes('Cachorro 4')">Mais Detalhes</button>
+                </div>
+            </div>
+            <div class="animal-carrossel">
+                <img src="Imagens/gato4.jpeg" alt="Gato">
+                <p class="nome-animal"> Zeus</p>
+                <p>Gênero: Masculino</p>
+                <p>Cidade: São Paulo - SP</p>
+                <div class="botao-mais-detalhes">
+                <button onclick="mostrarDetalhes('Gato 4')">Mais Detalhes</button>
+                </div>
             </div>
             <div class="animal-carrossel">
                 <img src="Imagens/cachorro5.jpeg" alt="Cachorro">
-                <p>Idade: </p>
-                <button onclick="mostrarDetalhes('Cachorro 1')">Mais Detalhes</button>
+                <p class="nome-animal"> Rocky</p>
+                <p>Gênero: Masculino</p>
+                <p>Cidade: São Paulo - SP</p>
+                <div class="botao-mais-detalhes">
+                <button onclick="mostrarDetalhes('Cachorro 5')">Mais Detalhes</button>
+                </div>
             </div>
-
-            <button id="prevBtn">Anterior</button>
-            <button id="nextBtn">Próxima</button>
-
+            <div class="animal-carrossel">
+                <img src="Imagens/gato1.jpeg" alt="Gato">
+                <p class="nome-animal"> Luna</p>
+                <p>Gênero: Masculino</p>
+                <p>Cidade: São Paulo - SP</p>
+                <div class="botao-mais-detalhes">
+                <button onclick="mostrarDetalhes('Gato 1')">Mais Detalhes</button>
+                </div>
+            </div>
+            <div class="animal-carrossel">
+                <img src="Imagens/cachorro2.jpeg" alt="Cachorro">
+                <p class="nome-animal"> Bella</p>
+                <p>Gênero: Masculino</p>
+                <p>Cidade: São Paulo - SP</p>
+                <div class="botao-mais-detalhes">
+                <button onclick="mostrarDetalhes('Cachorro 2')">Mais Detalhes</button>
+                </div>
+            </div>
+            <div class="animal-carrossel">
+                <img src="Imagens/gato5.jpeg" alt="Gato">
+                <p class="nome-animal"> Mel </p>
+                <p>Gênero: Masculino</p>
+                <p>Cidade: São Paulo - SP</p>
+                <div class="botao-mais-detalhes">
+                <button onclick="mostrarDetalhes('Gato 5')">Mais Detalhes</button>
+                </div>
+            </div>
+            </div>
         </div>
+        
+        <span class="material-symbols-outlined" id="prevBtn">arrow_back_ios</span>
+        <span class="material-symbols-outlined" id="nextBtn">arrow_forward_ios</span>
 
-        <button class="botao-ver-mais">Ver Mais</button>
+        <a href="adotar.html"><button class="botao-ver-mais">Ver Mais</button></a>
     </section>
 
     <!-- FIM CAROSSEL -->
@@ -140,8 +266,7 @@
     <footer>
         <p>&copy; 2024 Adocães - Todos os direitos reservados</p>
     </footer>
-
-    <script src="script.js"></script>
+    <script src="scripthome.js"></script>
 </body>
 
 </html>

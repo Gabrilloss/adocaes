@@ -1,5 +1,3 @@
-
-
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
@@ -7,48 +5,29 @@ body {
     background-color: #f4f4f4;
     overflow: hidden;
 }
-
-input[type=text] {
-
-    width: 100%;
+.input_menor{
+    width: 25%;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 3px;
     margin-bottom: 20px;
-
+}
+.input_maior{
+    width: 50%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 20px;
 }
 select{
-    width: 365px;
+    width: 25%;
     padding: 8px;
     border: 1px solid #ccc;
 }
-select::content{
-    opacity: 0.5;
-}
-::-webkit-input-placeholder {
-    color: black;
- }
-.parte1{
-    width: 350px;
-    display: inline-block;
-    margin-left: 50px;
-    padding: 20px;
 
-}
-.parte2{
-    display: inline-block;
-    width: 350px;
-    margin-left: 125px;
-    padding: 20px;
-}
-.parte1 .parte2 label {
-    display: block;
-    margin-bottom: 5px;
-    
-}
-form{
+form {
     background-color: #fff;
-    width: 1000px;
+    width: 900px;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -59,13 +38,7 @@ form{
     margin-top: 50px;
 }
 
-::-webkit-calendar-picker-indicator{
-    background-color: #ffffff;
-    padding: 5px;
-    cursor: pointer;
-    border-radius: 3px;
-}
-input[type=submit]{
+input[type=submit] {
     margin: auto;
     width: 30%;
     padding: 10px;
@@ -75,16 +48,8 @@ input[type=submit]{
     border-radius: 3px;
     cursor: pointer;
     font-family: 'Poppins', sans-serif;
-   /* margin-top: 500px;*/
-   justify-content: center;
-}
-.container
-{
-    
-    min-width: 100%;
-    min-height: 70.7vh;
-    text-align: center;
-    color: #038FDE;
+    /* margin-top: 500px;*/
+    justify-content: center;
 }
 
 .animal-list {
@@ -108,11 +73,13 @@ input[type=submit]{
     font-size: 15px;
     text-decoration: none;
     transition: color 0.3s ease;
-    
+
 }
+
 input::placeholder {
-    opacity: 0.5 ;
-  }
+    opacity: 0.5;
+}
+
 .animal-list li a:hover {
     color: #FF8743;
     text-decoration: none;
@@ -126,7 +93,14 @@ nav .animal-dropdown:hover .animal-list {
     width: 150px;
     margin-right: 200px;
 }
-
+.container
+{
+    
+    min-width: 100%;
+    min-height: 70.7vh;
+    text-align: center;
+    color: #038FDE;
+}
 .profile-nav a {
     margin-left: 200px;
     display: flex;
@@ -135,31 +109,24 @@ nav .animal-dropdown:hover .animal-list {
 
 .material-symbols-outlined {
     font-variation-settings:
-    'FILL' 0,
-    'wght' 100,
-    'GRAD' 200,
-    'opsz' 24;
+        'FILL' 0,
+        'wght' 100,
+        'GRAD' 200,
+        'opsz' 24;
     font-size: 26px;
     margin-right: 5px;
-  }
-  
-  footer {
-      background-color: #FF8743;
-      color: #fff;
-      text-align: center;
-      padding: 1em 0;
-      bottom: 0;
-      position: fixed ;
-      width: 100%;
-  }
-  .alinhar {
-    width: 100%;
-    margin: 0 auto;
-    text-align: center;
-    border-radius: 25px;
-    border-color: blue;
-
 }
+
+footer {
+    background-color: #FF8743;
+    color: #fff;
+    text-align: center;
+    padding: 1em 0;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+}
+
 div.banner {
     background-color: #FF8743;
     color: #fff;
@@ -170,10 +137,16 @@ div.banner {
     width: 100%;
     overflow: hidden;
 }
+
 .banner img {
-    height: 100px ;
+    height: 100px;
     transform: scale(2);
 }
+
 button:hover {
     background-color: #FF8743;
 }
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
