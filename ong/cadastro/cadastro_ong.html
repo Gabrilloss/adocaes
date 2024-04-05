@@ -62,22 +62,22 @@
                     <br>
                     <div class="grupo">
                         <label for="">Número:</label>
-                        <input type="number" maxLength="6" name="num_adotante" placeholder="Numero do seu endereço"
+                        <input type="number" maxLength="6" name="num_ong" placeholder="Numero do seu endereço"
                                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                                class="input_menor" required>
                     </div>
                 </div>
                 <label for="">Bairro:</label><br>
-                <input type="text" name="bairro_usuario" placeholder="Digite seu bairro" class="input_menor" required>
+                <input type="text" name="bairro_ong" placeholder="Digite seu bairro" class="input_menor" required>
                 <br>
                 <label for="">Cidade:</label><br>
-                <input type="text" name="cidade_adotante" placeholder="Digite o nome da sua cidade" class="input_menor" required>
+                <input type="text" name="cidade_ong" placeholder="Digite o nome da sua cidade" class="input_menor" required>
                 <br>
                 <label for="">Rua:</label><br>
-                <input type="text" name="rua_usuario" placeholder="Digite o nome da sua rua" class="input_maior" required>
+                <input type="text" name="rua_ong" placeholder="Digite o nome da sua rua" class="input_maior" required>
                 <br>
                 <label for="estado">Estado:</label><br>
-                <select id="estado" name="estado_usuario">
+                <select id="estado" name="estado_ong">
                     <option value="AC">Acre</option>
                     <option value="AL">Alagoas</option>
                     <option value="AP">Amapá</option>
@@ -107,7 +107,7 @@
                     <option value="TO">Tocantins</option>
                 </select><br>
                 <label for="">CEP:</label><br>
-                <input type="text" name="cep_usuario" placeholder="Digite o numero do seu CEP" class="input_menor" required>
+                <input type="text" name="cep_ong" placeholder="Digite o numero do seu CEP" class="input_menor" required>
                 <br>
                 <button type="button" onclick="nextStep(2)" class="botao">Anterior</button>
                 <button type="submit" class="botao">Enviar</button>

@@ -1,7 +1,7 @@
 <?php
     session_start();
-    include_once("php_util/Conexao.php");
-    include_once("php_util/cnpj.php");
+    include_once("../../util_php/Conexao.php");
+    include_once("../../util_php/cnpj.php");
     try{
         $nome = $_POST['nome_ong'];
         $cnpj = $_POST['cnpj_ong'];
@@ -12,6 +12,13 @@
         $senha = $_POST['senha_ong'];
         $site = $_POST['site_ong'];
         $url = $_POST['url_ong'];
+        $telefone = $_POST['num_telefone'];
+        $bairro = $_POST['bairro_ong'];
+        $numero = $_POST['num_ong'];
+        $cidade = $_POST['cidade_ong'];
+        $rua = $_POST['rua_ong'];
+        $estado = $_POST['estado_ong'];
+        $cep = $_POST['cep_ong'];
 
         mysqli_begin_transaction($conn);
         $sql_ong = "INSERT INTO ongs(nomeOng, cnpj, senha, site) VALUES('$nome', '$cnpj','$senha','$site')";
@@ -21,8 +28,28 @@
             $id_novo = mysqli_insert_id($conn);
             $sql_url = "INSERT INTO urls(url, idOng) VALUES ('$url', '$id_novo')";
             $resposta_url = mysqli_query($conn, $sql_url);
-            mysqli_commit($conn);
-            echo "Transação concluída com sucesso!";
+            if($resposta_url){
+                $sql_telefone = "INSERT INTO telefone(numero, idAdotantes, idONG) VALUES ('$telefone', null,  '$id_novo')";
+                $resposta_telefone = mysqli_query($conn, $sql_telefone);
+                if($resposta_telefone){
+                    $sql_endereco = "INSERT INTO endereco(bairro, numero, rua, cidade, estado, cep, idAdotantes, idONG) VALUES ('$bairro', '$numero','$rua', '$cidade', '$estado', '$cep' , null, '$id_novo')";
+                    $resposta_endereco = mysqli_query($conn, $sql_endereco);
+                    if($resposta_endereco){
+                        mysqli_commit($conn);
+                        echo "Ong cadastrada com sucesso!";
+                    }else{
+                        mysqli_rollback($conn);
+                        echo "Erro ao cadastrar ong: " . mysqli_error($conn);
+                    }
+                }else {
+                    mysqli_rollback($conn);
+                    echo "Erro ao cadastrar ong: " . mysqli_error($conn);
+                    }
+            }else {
+                mysqli_rollback($conn);
+                echo "Erro ao cadastrar ong: " . mysqli_error($conn);
+                }
+
         } else {
             mysqli_rollback($conn);
             echo "Erro ao cadastrar ong: " . mysqli_error($conn);
