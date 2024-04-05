@@ -1,46 +1,52 @@
-function validarCPF(cpf) {
-    cpf = cpf.replace(/[^\d]+/g,''); // Remove caracteres não numéricos
-    if(cpf == '') return false; // Retorna false se o cpf estiver vazio
-    if (cpf.length != 11) return false; // Retorna false se o cpf não tiver 11 dígitos
-    // Validação dos 9 primeiros dígitos
-    let add = 0;
-    for (let i=0; i < 9; i ++)
-        add += parseInt(cpf.charAt(i)) * (10 - i);
-    let rev = 11 - (add % 11);
-    if (rev == 10 || rev == 11)
-        rev = 0;
-    if (rev != parseInt(cpf.charAt(9)))
-        return false;
-    // Validação dos 2 últimos dígitos
-    add = 0;
-    for (let i = 0; i < 10; i ++)
-        add += parseInt(cpf.charAt(i)) * (11 - i);
-    rev = 11 - (add % 11);
-    if (rev == 10 || rev == 11)
-        rev = 0;
-    if (rev != parseInt(cpf.charAt(10)))
-        return false;
-    return true;
-}
 
-// Exemplo de uso
 document.getElementById('cpfInput').addEventListener('blur', function() {
-    if (validarCPF(this.value)) {
-        console.log('CPF válido');
-        // Aqui você pode adicionar lógica para indicar que o CPF é válido, por exemplo, alterar a cor do campo
-        this.style.borderColor = 'green';
+    const cpfInput = this;
+    const cpf = cpfInput.value.trim();
+    var cpfErro = document.getElementById('cpfError')
+    if (validarCPF(cpf)) {
+        console.log('cpf válido');
+        cpfInput.style.borderColor = 'green';
+        cpfErro.style.display = 'none';
     } else {
-        console.log('CPF inválido');
-        // Aqui você pode adicionar lógica para indicar que o CPF é inválido, por exemplo, alterar a cor do campo
-        this.style.borderColor = 'red';
+        console.log('cpf inválido');
+        cpfInput.style.borderColor = 'red';
+        cpfErro.textContent = 'cpf inválido. Por favor, verifique e tente novamente.';
+        cpfErro.style.display = 'block';
     }
 });
+
 document.getElementById('formularioCadastro').addEventListener('submit', function(event) {
-    const cpf = document.getElementById('cpfInput').value
-    console.log(cpf)
+    const cpf = document.getElementById('cpfInput').value.trim();
     if (!validarCPF(cpf)) {
-        event.preventDefault(); // Cancela a submissão do formulário
-        alert('CPF inválido. Por favor, verifique e tente novamente.');
+        event.preventDefault();
+        alert('cpf inválido. Por favor, verifique e tente novamente.');
     }
 });
-    
+
+function nextStep(step) {
+    if (step === 1) {
+        var stepFields = document.getElementById('step1').querySelectorAll('input, select');
+        var isStepValid = true;
+        stepFields.forEach(function(field) {
+            if (!field.value.trim()) {
+                isStepValid = false;
+            }
+        });
+        
+        var cpf = document.getElementById('cpfInput').value
+        if (!validarCPF(cpf)) {
+            console.log('valida_cpf nextstep()')
+            isStepValid = false;
+        }
+
+        if (isStepValid) {
+            document.getElementById('step1').classList.add('hidden');
+            document.getElementById('step2').classList.remove('hidden');
+        } else {
+            alert('Por favor, preencha todos os campos na etapa 1.');
+        }
+    } else if (step === 2) {
+        document.getElementById('step2').classList.add('hidden');
+        document.getElementById('step1').classList.remove('hidden');
+    }
+}

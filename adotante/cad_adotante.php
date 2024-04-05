@@ -1,7 +1,7 @@
 <?php
     session_start();
-    include_once("util_php/Conexao.php");
-    include_once("util_php/cpf.php");
+    include_once("../util_php/Conexao.php");
+    include_once("../util_php/cpf.php");
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
     try{
         $nome = $_POST['nome_usuario'];

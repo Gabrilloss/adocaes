@@ -13,21 +13,35 @@ body {
     margin-bottom: 20px;
 }
 .input_maior{
-    width: 50%;
+    width: 60%;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 3px;
     margin-bottom: 20px;
 }
 select{
-    width: 25%;
+    width: 53%;
     padding: 8px;
     border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 20px;
 }
-
+.botao {
+    margin: auto;
+    width: 30%;
+    padding: 10px;
+    background-color: #038FDE;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    /* margin-top: 500px;*/
+    justify-content: center;
+}
 form {
     background-color: #fff;
-    width: 900px;
+    width: 600px;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -37,7 +51,42 @@ form {
     transform: translate(-50%, -50%);
     margin-top: 50px;
 }
+input[type=tel] {
 
+    width: 50%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 20px;
+
+}
+input[type=text] {
+
+    width: 50%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 20px;
+
+}
+input[type=password] {
+
+    width: 50%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 20px;
+
+}
+input[type=email] {
+
+    width: 50%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 20px;
+
+}
 input[type=submit] {
     margin: auto;
     width: 30%;
@@ -92,6 +141,27 @@ nav .animal-dropdown:hover .animal-list {
 .logo {
     width: 150px;
     margin-right: 200px;
+}
+.row{
+    display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+}
+.grupo{
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 20px; /* Adiciona espaço entre os campos de entrada */
+}
+.grupo input{
+    width: 90%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+.grupo label{
+    display: block;
+    margin-bottom: 5px;
 }
 .container
 {
@@ -150,3 +220,15 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
+  .valid {
+    border-color: green;
+}
+.invalid {
+    border-color: red;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    display: none;
+}

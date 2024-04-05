@@ -14,45 +14,67 @@
 
 
     <title>Cadastro de Adoção</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
 <div class="banner">
-    <img src="imagens\logologin.png" class="logo-login">
+    <img src="../imagens\logologin.png" class="logo-login">
 </div>
 <div class="container">
     <form method="post" action="cad_adotante.php" id="formularioCadastro">
-        <h1>CADASTRAR ADOTANTE</h1>
+        <div id="step1">
+            <h1>CADASTRAR ADOTANTE</h1>
         
-            <label for="">Nome:</label>
+            <label for="">Nome:</label><br>
             <input type="text" name="nome_usuario" placeholder="Digite seu nome" class="input_maior" required><br>
-            <label for="" >CPF:</label>
+            <label for="" >CPF:</label><br>
             <input type="text" name="cpf_usuario" placeholder="Digite seu cpf" class="input_maior" id="cpfInput" required>
+            <span id="cnpjError" class="error-message"></span>
             <br>
-            <label for="">Email:</label>
+            <label for="">Email:</label><br>
             <input type="email" name="email_usuario" placeholder="Digite seu email" class="input_maior" required>
             <br>
-            <label for="">Senha:</label>
+            <label for="">Senha:</label><br>
             <input type="password" name="senha_usuario" placeholder="Digite sua senha" class="input_maior" required>
             <br>
-            <label for="">Telefone:</label>
-            <input type="tel" name="num_telefone" placeholder="Digite seu telefone" class="input_menor"  required>
-            <label for="">Bairro:</label>
-            <input type="text" name="bairro_usuario" placeholder="Digite seu bairro" class="input_menor"  required>
+            <label for="">Url:</label><br>
+            <input type="text" name="url_usuario" placeholder="Digite o url da sua imagem" class="input_maior"  required>
             <br>
-            <label for="">Número:</label>
-            <input type="number" maxLength="6" name="num_adotante" placeholder="Digite o numero do seu endereço" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" class="input_menor" required>
-       
+            <button type="button" onclick="nextStep(1)" class="botao">Próximo</button>
+        </div>
+        <div id="step2" class="hidden">
+            <h1>TERMINE SEU CADASTRO</h1>
+            <div class="row">
+                <div class="grupo">
+                    <label for="">Telefone:</label>
+                    <input type="tel" name="num_telefone" placeholder="Digite seu telefone" class="input_menor" required>
+                </div>
+                <br>
+                <div class="grupo">
+                    <label for="">Número:</label>
+                    <input type="number" maxLength="6" name="num_adotante" placeholder="Numero do seu endereço"
+                           oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                           class="input_menor" required>
+                </div>
+            </div>
             
-            <label for="">Cidade:</label>
+            <label for="">Bairro:</label><br>
+            <input type="text" name="bairro_usuario" placeholder="Digite seu bairro" class="input_menor"  required>
+            <br>    
+            <label for="">Cidade:</label><br>
             <input type="text" name="cidade_adotante" placeholder="Digite o nome da sua cidade" class="input_menor" required>
             <br>
         
 
-        <label for="">Rua:</label>
+        <label for="">Rua:</label><br>
         <input type="text" name="rua_usuario" placeholder="Digite o nome da sua rua" class="input_maior" required>
         <br>
-        <label for="estado">Estado:</label>
+        <label for="estado">Estado:</label><br>
         <select id="estado" name="estado_usuario">
             <option value="AC">Acre</option>
             <option value="AL">Alagoas</option>
@@ -82,14 +104,14 @@
             <option value="SE">Sergipe</option>
             <option value="TO">Tocantins</option>
         </select>
-        <label for="">CEP:</label>
-        <input type="text" name="cep_usuario" placeholder="Digite o numero do seu CEP" class="input_menor"  required>
         <br>
-        <label for="">Url:</label>
-        <input type="text" name="url_usuario" placeholder="Digite o url da sua imagem" class="input_maior"  required>
-        <br>
+            <label for="">CEP:</label><br>
+            <input type="text" name="cep_usuario" placeholder="Digite o numero do seu CEP" class="input_menor"  required>
+            <br>
         
-        <input type="submit" value="Enviar">
+            <button type="button" onclick="nextStep(2)" class="botao">Anterior</button>
+            <button type="submit" class="botao">Enviar</button>
+        </div>
     </form>
 
 </div>
@@ -98,6 +120,7 @@
     <p>&copy; 2024 Adocães - Todos os direitos reservados</p>
 </footer>
 <script src="cadastro_usuario.js" defer></script>
+<script src="../util_js/valida_cpf.js"></script>
 </body>
 
 </html
