@@ -94,3 +94,14 @@ button {
 button:hover {
     background-color: #FF8743;
 }
+
+.input-error {
+    border-color: red;
+    box-shadow: 0 0 5px red;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+    display: none;
+}
