@@ -1,42 +1,57 @@
 
 /*CARROSSEL DE IMAGENS*/
 
+/* var valorAdotante = localStorage.getItem('id_adotante');
+var valorOng = localStorage.getItem('id_ong');
+if (valorAdotante != null ){
+    document.getElementById('teste2').classList.add('hidden');
+    document.getElementById('teste').classList.remove('hidden');
+}
+if(valorOng != null ){
+    document.getElementById('teste').classList.add('hidden');
+    document.getElementById('teste2').classList.remove('hidden');
+    document.getElementById('cad').classList.add('hidden');
+    document.getElementById('log').classList.add('hidden');}
+else{
+    document.getElementById('cad').classList.remove('hidden');
+    document.getElementById('log').classList.remove('hidden');
+}; */
 
-    let currentIndex = 0;
-    const slides = document.querySelectorAll('.animal-carrossel');
-    const slideWidth = slides[0].offsetWidth;
-    const slidesToShow = 3.3;   
+let currentIndex = 0;
+const slides = document.querySelectorAll('.animal-carrossel');
+const slideWidth = slides[0].offsetWidth;
+const slidesToShow = 3.3;
 
-    function showSlide(index) {
-        const leftPosition = index * slideWidth;
-        document.querySelector('.carrossel').scrollTo({
-            left: leftPosition,
-            behavior: 'smooth'
-        }); 
-    }
-
-    function nextSlide() {
-        if (window.innerWidth >= 1284) {
-            currentIndex = (currentIndex + 3.3) > 12.5? 0 : (currentIndex + 3.3);
-            showSlide(currentIndex);
-        } else {
-            currentIndex = (currentIndex + 1.1) > 12? 0 : (currentIndex + 1.12);
-            showSlide(currentIndex);
-        }
+function showSlide(index) {
+    const leftPosition = index * slideWidth;
+    document.querySelector('.carrossel').scrollTo({
+        left: leftPosition,
+        behavior: 'smooth'
+    });
 }
 
-    function prevSlide() {
-        if (window.innerWidth >= 1284) {
-            currentIndex = (currentIndex - 3.3) < 0 ? 9.9 : (currentIndex - 3.3);
-            showSlide(currentIndex);
-        } else {
-            currentIndex = (currentIndex - 1.1) < 0 ? 12.34: (currentIndex - 1.12);
-            showSlide(currentIndex);
-        }
+function nextSlide() {
+    if (window.innerWidth >= 1284) {
+        currentIndex = (currentIndex + 3.3) > 12.5 ? 0 : (currentIndex + 3.3);
+        showSlide(currentIndex);
+    } else {
+        currentIndex = (currentIndex + 1.1) > 12 ? 0 : (currentIndex + 1.12);
+        showSlide(currentIndex);
     }
+}
 
-    document.getElementById('nextBtn').addEventListener('click', nextSlide);
-    document.getElementById('prevBtn').addEventListener('click', prevSlide);
+function prevSlide() {
+    if (window.innerWidth >= 1284) {
+        currentIndex = (currentIndex - 3.3) < 0 ? 9.9 : (currentIndex - 3.3);
+        showSlide(currentIndex);
+    } else {
+        currentIndex = (currentIndex - 1.1) < 0 ? 12.34 : (currentIndex - 1.12);
+        showSlide(currentIndex);
+    }
+}
+
+document.getElementById('nextBtn').addEventListener('click', nextSlide);
+document.getElementById('prevBtn').addEventListener('click', prevSlide);
 
 
 // DRAWER PERFIL
@@ -85,18 +100,18 @@ function mostrarImagemSelecionada() {
 
 let lastScrollTop = 0;
 
-window.addEventListener("scroll", function() {
+window.addEventListener("scroll", function () {
     let currentScroll = window.scrollY || document.documentElement.scrollTop;
     if (window.innerWidth >= 1284) {
-    if (currentScroll > lastScrollTop) {
-        // Scroll para baixo
-        document.getElementById("siteHeader").style.top = "-100%"; // Esconda a header
-    } else {
-        // Scroll para cima
-        document.getElementById("siteHeader").style.top = "0"; // Mostra a header
+        if (currentScroll > lastScrollTop) {
+            // Scroll para baixo
+            document.getElementById("siteHeader").style.top = "-100%"; // Esconda a header
+        } else {
+            // Scroll para cima
+            document.getElementById("siteHeader").style.top = "0"; // Mostra a header
+        }
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Para tratar o caso de descer até o topo
     }
-    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Para tratar o caso de descer até o topo
-}
 }, false);
 
 
@@ -109,7 +124,7 @@ function openPopup() {
     document.querySelector(".close-button").style.pointerEvents = "none";
     document.body.classList.add('no-scroll');
     telaAdm.classList.add('bloqueada');
-    
+
 }
 
 function closePopup() {
@@ -126,17 +141,17 @@ function closePopup() {
 
 //BOTÃO EDITAR PERFIL
 
-window.onload = function() {
+window.onload = function () {
     var buttons = document.querySelectorAll('[id="stylus"]');
 
-    buttons.forEach(function(button) {
-        button.addEventListener('click', function() {
+    buttons.forEach(function (button) {
+        button.addEventListener('click', function () {
             // Seleciona todos os inputs e textareas dentro do elemento pai
             var inputsAndTextarea = this.parentElement.querySelectorAll('input, textarea');
 
             // Verifica se algum dos inputs ou textareas está readonly
             var readOnly = false;
-            inputsAndTextarea.forEach(function(element) {
+            inputsAndTextarea.forEach(function (element) {
                 if (element.hasAttribute('readonly')) {
                     readOnly = true;
                 }
@@ -145,13 +160,13 @@ window.onload = function() {
             // Se os inputs ou textareas estiverem readonly, torna-os editáveis e muda o ícone para 'save'
             // Caso contrário, torna os inputs e textareas readonly novamente e muda o ícone para 'stylus'
             if (readOnly) {
-                inputsAndTextarea.forEach(function(element) {
+                inputsAndTextarea.forEach(function (element) {
                     element.removeAttribute('readonly');
                     element.style.border = '1px solid #FF8743';
                 });
                 this.innerHTML = 'save';
             } else {
-                inputsAndTextarea.forEach(function(element) {
+                inputsAndTextarea.forEach(function (element) {
                     element.setAttribute('readonly', 'readonly');
                     element.style.border = 'none';
                 });
@@ -161,25 +176,37 @@ window.onload = function() {
     });
 };
 
+navbar()
 
+function clearLocalStorage() {
+    localStorage.clear()
+}
 
-// POP UP MAIS DETALHES (edgar)
+function navbar() {
+    console.log("function nav-bar")
+    const ong = localStorage.getItem("id_ong")
+    const user = localStorage.getItem("id_adotante")
 
+    console.log(ong, user);
 
+    if (ong !== null){
+        const navbarCadastro = document.getElementsByClassName('navbar-cadastro')[0]
+        navbarCadastro.style.display = "none";
+        const navbar = document.getElementsByClassName('navbar-adm')[0]
+        navbar.style.display = "block";
+    }
 
+    if (user !== null){
+        const navbarCadastro = document.getElementsByClassName('navbar-cadastro')[0]
+        navbarCadastro.style.display = 'none';
+        const navbar = document.getElementsByClassName('navbar-perfil')[0]
+        navbar.style.display = 'block';
+    }
+    
+}
 
+function logout() {
+    localStorage.clear(); 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    window.location.href = "/adocaes/home.html";
+}

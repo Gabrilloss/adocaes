@@ -18,7 +18,7 @@ function isEmail($username){
 
 function login($conn, $username, $senha){
     try {
-        if(isEmail($username)){
+if(isEmail($username)){
             // EMAIL
             $script_recupera_adotante = 
                 "SELECT idAdotantes, email, senha 
@@ -33,6 +33,7 @@ function login($conn, $username, $senha){
                 $idAdotantes = $row['idAdotantes'];
                 echo "<script>console.log('[SUCESSO] usuário encontrado: $idAdotantes')</script>";
                 echo "<script>localStorage.setItem('id_adotante', $idAdotantes);</script>";
+                echo "<script> window.location.href = '../home.html';</script>";
             }
         } else {
             // CNPJ
@@ -49,7 +50,7 @@ function login($conn, $username, $senha){
                 $idOng = $row['idong'];
                 echo "<script>console.log('[SUCESSO] usuário encontrado: $idOng')</script>";
                 echo "<script>localStorage.setItem('id_ong', $idOng);</script>";
-                
+                echo "<script> window.location.href = '../home.html';</script>";
             }
         }
     } catch (Exception $e) {

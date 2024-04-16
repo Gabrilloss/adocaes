@@ -22,13 +22,21 @@
                 <img src="imagens\logo.png" class="logo">
             </a>
             <a href="home.html">Página Inicial</a>
-            <a href="adotar.html">Adotar</a>
+            <a href="adotar/adotar.html">Adotar</a>
             <a href="#como-adotar">Como Adotar</a>
             <a href="#porque-adotar">Porque Adotar</a>
-            <a href="ongs.html">ONGs Parceiras</a>
-            <nav class="profile-nav">
-                <a href="#" onclick="toggleProfile()"><span id ='person' class="material-symbols-outlined"> person</span> Perfil</a>
-            </nav>
+            <a href="ong/view/ongs.html">ONGs Parceiras</a>
+            <div class="profile-nav">
+                <div class="navbar-cadastro">
+                    <a href="/adocaes/adotante/cadastro_usuario.html">Cadastre-se</a>
+                </div>
+                <div class="navbar-adm">
+                    <a href="/adocaes/administracao/administracao.html" ><span id ='person' class="material-symbols-outlined">assignment</span> Administração</a>
+                </div>
+                <div class="navbar-perfil">
+                    <a onclick="toggleProfile()"><span id ='person' class="material-symbols-outlined"> person</span>Perfil</a>
+                </div>
+            </div>
         </nav>
     </header>    
 
@@ -77,7 +85,7 @@
 
             <div class="botoes-perfil">
             <button onclick="openPopup()" class="botao-alterar-senha">Alterar Senha</button>
-            <a href="login.html"><button class="botao-sair">Sair</button></a>
+            <a ><button class="botao-sair" onclick="logout()">Sair</button></a>
             </div>
 
             <!--POPUP-->

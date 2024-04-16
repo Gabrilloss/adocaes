@@ -57,3 +57,9 @@ function closePopup() {
     document.body.classList.remove('no-scroll');
     telaAdm.classList.remove('bloqueada');
 }
+
+function logout() {
+    localStorage.clear(); 
+
+    window.location.href = "/adocaes/home.html";
+}

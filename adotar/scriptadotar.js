@@ -154,3 +154,11 @@ function aplicarFiltro() {
         }
     });
 }
+
+
+//LOGOUT
+function logout() {
+    localStorage.clear(); 
+
+    window.location.href = "/adocaes/home.html";
+}
