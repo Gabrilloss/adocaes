@@ -1,6 +1,6 @@
 <?php
-include_once("Conexao.php");
-
+include_once("../util_php/Conexao.php");
+header('Content-Type: text/html; charset=UTF-8');
 $nome = $_POST['nomeAnimal'];
 $raca = $_POST['raca'];
 $dataNascimento = $_POST['dataNascimento'];
@@ -26,6 +26,7 @@ if ($resposta_animal) {
     if ($resposta_url) {
         mysqli_commit($conn);
         echo "Transação concluída com sucesso!";
+        echo "<script> window.location.href = '../administracao/administracao.html';</script>";
     } else {
         mysqli_rollback($conn);
         echo "Erro ao inserir animal: " . mysqli_error($conn);

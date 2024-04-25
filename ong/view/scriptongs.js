@@ -119,3 +119,26 @@ window.onload = function() {
         });
     });
 };
+navbar()
+function navbar() {
+    console.log("function nav-bar")
+    const ong = localStorage.getItem("id_ong")
+    const user = localStorage.getItem("id_adotante")
+
+    console.log(ong, user);
+
+    if (ong !== null){
+        const navbarCadastro = document.getElementsByClassName('navbar-cadastro')[0]
+        navbarCadastro.style.display = "none";
+        const navbar = document.getElementsByClassName('navbar-adm')[0]
+        navbar.style.display = "block";
+    }
+
+    if (user !== null){
+        const navbarCadastro = document.getElementsByClassName('navbar-cadastro')[0]
+        navbarCadastro.style.display = 'none';
+        const navbar = document.getElementsByClassName('navbar-perfil')[0]
+        navbar.style.display = 'block';
+    }
+    
+}

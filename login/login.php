@@ -1,6 +1,7 @@
 <?php 
 session_start();
 include_once("../util_php/Conexao.php");
+header('Content-Type: text/html; charset=UTF-8');
 
 $username = $_POST['username'];
 $senha = $_POST['password'];

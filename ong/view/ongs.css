@@ -428,7 +428,13 @@ button:hover {
     background-color: #FF8743;
 }
 
+.profile-nav > div {
+    display: none;
+}
 
+.profile-nav > .navbar-cadastro {
+    display: block;
+}
 
 @media screen and (max-width: 1285px) {
 
