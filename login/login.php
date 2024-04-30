@@ -22,7 +22,7 @@ function login($conn, $username, $senha){
 if(isEmail($username)){
             // EMAIL
             $script_recupera_adotante = 
-                "SELECT idAdotantes, email, senha 
+                "SELECT idAdotantes, email, senha, nomeAdotante, CPF
                  FROM adotantes 
                  WHERE  email = '$username' 
                  AND senha = '$senha'";
@@ -32,9 +32,26 @@ if(isEmail($username)){
             } else {
                 $row = mysqli_fetch_assoc($result);
                 $idAdotantes = $row['idAdotantes'];
+                $imagem = retornaUrl($conn, $idAdotantes);
+                $nome = $row['nomeAdotante'];
+                $email = $row['email'];
+                $telefone = retornaTelefone($conn, $idAdotantes);
+                $cpf = $row['CPF'];
+
+                $info_usuario = array(
+                    'nome' => $nome,
+                    'email' => $email,
+                    'cpf' => $cpf,
+                    'imagem' => $imagem,
+                    'telefone' => $telefone
+                );
+                
+                $info_usuario_json = json_encode($info_usuario);
+
                 echo "<script>console.log('[SUCESSO] usuário encontrado: $idAdotantes')</script>";
                 echo "<script>localStorage.setItem('id_adotante', $idAdotantes);</script>";
-                echo "<script> window.location.href = '../home.html';</script>";
+                echo "<script>localStorage.setItem('info_usuario', '$info_usuario_json');</script>";
+                echo "<script> window.location.href = '../home.php';</script>";
             }
         } else {
             // CNPJ
@@ -51,7 +68,7 @@ if(isEmail($username)){
                 $idOng = $row['idong'];
                 echo "<script>console.log('[SUCESSO] usuário encontrado: $idOng')</script>";
                 echo "<script>localStorage.setItem('id_ong', $idOng);</script>";
-                echo "<script> window.location.href = '../home.html';</script>";
+                echo "<script> window.location.href = '../home.php';</script>";
             }
         }
     } catch (Exception $e) {
@@ -59,4 +76,32 @@ if(isEmail($username)){
         exit();
     }
 }
+
+
+function retornaUrl($conn, $idAdotante){
+    $script_urls = 
+    "SELECT idUrl, url
+    FROM urls 
+    WHERE  idAdotantes = '$idAdotante'";
+
+    $result = mysqli_query($conn, $script_urls);
+    
+    if(mysqli_num_rows($result) == 0){ return null; }
+    $row = mysqli_fetch_assoc($result);
+    return $row['url'];
+}
+
+function retornaTelefone($conn, $idAdotante){
+    $script_urls = 
+    "SELECT idTelefone, numero
+    FROM telefone 
+    WHERE  idAdotantes = '$idAdotante'";
+
+    $result = mysqli_query($conn, $script_urls);
+    
+    if(mysqli_num_rows($result) == 0){ return null; }
+    $row = mysqli_fetch_assoc($result);
+    return $row['numero'];
+}
+
 ?>

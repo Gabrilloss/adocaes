@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -49,12 +47,13 @@
         <div class="profile-content-top">
             <div class="profile-picture-container">
                 <input type="file" id="uploadFile" style="display: none;" accept="image/*" onchange="mostrarImagemSelecionada()">
-                <img src="#" id="profilePicture" alt="Foto do Perfil">
+                <img id="profilePicture" alt="Imagem do Animal">
             </div>
             <div class ="perfil-text">
-            <h2>Nome Completo</h2>
-            <h3>Adotante</h3>
-            <label for="uploadFile" class="alterar-foto">Alterar Foto</label>
+                <span class = "nome"></span>
+                <br>
+                <h3>Adotante</h3>
+                <label for="uploadFile" class="alterar-foto">Alterar Foto</label>
             </div>
         </div>
         <div class="topicos-perfil">
@@ -277,6 +276,7 @@
         <p>&copy; 2024 Adocães - Todos os direitos reservados</p>
     </footer>
     <script src="scripthome.js"></script>
+    <script src="local_storage.js"></script>
 </body>
 
 </html>
