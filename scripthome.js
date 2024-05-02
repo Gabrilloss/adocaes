@@ -205,6 +205,29 @@ function navbar() {
     
 }
 
+// Função para mostrar o popup de detalhes
+function mostrarDetalhes(idPopup) {
+    const popup = document.getElementById(idPopup);
+    popup.style.display = "block";
+    document.body.classList.add('popup-aberto'); // Adicione a classe ao body
+    
+    // Adicione um ouvinte de evento de clique ao fundo semi-transparente do popup
+    popup.addEventListener('click', function(event) {
+        // Verifique se o clique ocorreu dentro do popup ou em seus filhos
+        if (!event.target.closest('.popup-content')) {
+            // Se o clique ocorreu fora do popup, feche-o
+            fecharDetalhes(idPopup);
+        }
+    });
+}
+
+// Função para fechar o popup de detalhes
+function fecharDetalhes(idPopup) {
+    const popup = document.getElementById(idPopup);
+    popup.style.display = "none";
+    document.body.classList.remove('popup-aberto'); // Remova a classe do body
+}
+
 function logout() {
     localStorage.clear(); 
 

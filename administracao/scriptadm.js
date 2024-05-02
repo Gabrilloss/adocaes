@@ -61,5 +61,5 @@ function closePopup() {
 function logout() {
     localStorage.clear(); 
 
-    window.location.href = "/adocaes/home.html";
+    window.location.href = "/adocaes/home.php";
 }

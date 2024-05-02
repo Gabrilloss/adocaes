@@ -15,3 +15,22 @@ function info_usuario(){
         document.querySelector('.nome').textContent = infoUsuario.nome || 'Nome';
     }
 }
+info_ong()
+
+function info_ong(){
+    console.log("info-ong")
+    var infoOngString = localStorage.getItem('info_ong');
+    if (infoOngString) {
+        console.log(`values: ${JSON.stringify(infoOngString)}`);
+
+        var infoOng = JSON.parse(infoOngString);
+        
+        document.getElementById('site').value = infoOng.site || '';
+        document.getElementById('cnpj').value = infoOng.cnpj || '';
+        document.getElementById('telefone').value = infoOng.telefone || '';
+        if (infoOngString !== true ){
+        document.querySelector('.nome').textContent = infoOng.nome || 'Nome';
+        hidden.style.display = 'none';
+    }
+    }
+}

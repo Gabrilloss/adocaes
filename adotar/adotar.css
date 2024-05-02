@@ -302,6 +302,49 @@ footer {
     box-shadow: 0 0 5px rgba(3, 143, 222, 0.5); /* Adiciona uma leve sombra de foco */
 }
 
+/* POPUP - MOSTRAR DETALHES */
+body.popup-aberto {
+    overflow: hidden;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: hidden; /* Oculta a barra de rolagem */
+}
+
+.popup-content {
+    background-color: #ffffff;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    max-height: calc(100% - 40px); /* Ajuste conforme necessário para manter o conteúdo visível */
+    overflow: auto; /* Adicione rolagem interna se o conteúdo ultrapassar a altura máxima */
+}
+
+/* Estilo do botão de fechar */
+.fechar {
+    color: #555;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.fechar:hover {
+    color: #333;
+    font-size: 28px;
+}
+/*//////////////////////////////////////////////////////////////////////*/
+
 /*PERFIL - DRAWER*/
 
 
@@ -571,13 +614,7 @@ button:hover {
     background-color: #FF8743;
 }
 
-.profile-nav > div {
-    display: none;
-}
 
-.profile-nav > .navbar-cadastro {
-    display: block;
-}
 
 @media screen and (max-width: 1285px) {
     #siteHeader {

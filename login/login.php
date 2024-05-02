@@ -56,7 +56,7 @@ if(isEmail($username)){
         } else {
             // CNPJ
             $script_recupera_ong = 
-            "SELECT idong, cnpj, senha 
+            "SELECT idong, cnpj, senha, nomeOng, site
              FROM ongs 
              WHERE cnpj = '$username' 
              AND senha = '$senha'";
@@ -66,8 +66,20 @@ if(isEmail($username)){
             } else {
                 $row = mysqli_fetch_assoc($result);
                 $idOng = $row['idong'];
+                $nome = $row['nomeOng'];
+                $site = $row['site'];
+                $cnpj = $row['cnpj'];
+                $telefone = retornaTelefoneOng($conn, $idOng);
+                $info_Ong = array(
+                    'nome' => $nome,
+                    'site' => $site,
+                    'cnpj' => $cnpj,
+                    'telefone' => $telefone
+                );
+                $info_ong_json = json_encode($info_Ong);
                 echo "<script>console.log('[SUCESSO] usuário encontrado: $idOng')</script>";
                 echo "<script>localStorage.setItem('id_ong', $idOng);</script>";
+                echo "<script>localStorage.setItem('info_ong', '$info_ong_json');</script>";
                 echo "<script> window.location.href = '../home.php';</script>";
             }
         }
@@ -91,6 +103,7 @@ function retornaUrl($conn, $idAdotante){
     return $row['url'];
 }
 
+
 function retornaTelefone($conn, $idAdotante){
     $script_urls = 
     "SELECT idTelefone, numero
@@ -103,5 +116,16 @@ function retornaTelefone($conn, $idAdotante){
     $row = mysqli_fetch_assoc($result);
     return $row['numero'];
 }
+function retornaTelefoneOng($conn, $idOng){
+    $script_urls = 
+    "SELECT idTelefone, numero
+    FROM telefone 
+    WHERE  idOng = '$idOng'";
 
+    $result = mysqli_query($conn, $script_urls);
+    
+    if(mysqli_num_rows($result) == 0){ return null; }
+    $row = mysqli_fetch_assoc($result);
+    return $row['numero'];
+}
 ?>

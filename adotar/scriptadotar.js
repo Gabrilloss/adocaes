@@ -129,59 +129,95 @@ function esconderFiltro() {
 
 /*FILTRAGEM*/
 
-function handleEnterKey(event) {
-    if (event.key === 'Enter') {
-        aplicarFiltro();
-    }
-}
+// function handleEnterKey(event) {
+//     if (event.key === 'Enter') {
+//         aplicarFiltro();
+//         filtrarPopups();
+//     }
+// }
 
+// function aplicarFiltro() {
+//     const filtroGato = document.getElementById('filtro-gato').checked;
+//     const filtroCachorro = document.getElementById('filtro-cachorro').checked;
 
+//     const animais = document.querySelectorAll('.animal-card');
+
+//     animais.forEach(animal => {
+//         const tipoAnimal = animal.querySelector('img').alt.toLowerCase();
+
+//         if ((filtroGato && tipoAnimal === 'gato') || (filtroCachorro && tipoAnimal === 'cachorro')) {
+//             animal.style.display = 'flex';
+//         } else if (!filtroGato && !filtroCachorro) {
+//             animal.style.display = 'flex';
+//         } else {
+//             animal.style.display = 'none';
+//         }
+//     });
+// }
 function aplicarFiltro() {
     const filtroGato = document.getElementById('filtro-gato').checked;
     const filtroCachorro = document.getElementById('filtro-cachorro').checked;
 
-    const animais = document.querySelectorAll('.animal-card');
+    const animaisVisiveis = document.querySelectorAll('.corresponde-pesquisa');
 
-    animais.forEach(animal => {
+    animaisVisiveis.forEach(animal => {
         const tipoAnimal = animal.querySelector('img').alt.toLowerCase();
 
         if ((filtroGato && tipoAnimal === 'gato') || (filtroCachorro && tipoAnimal === 'cachorro')) {
-            animal.style.display = 'flex';
-        } else if (!filtroGato && !filtroCachorro) {
-            animal.style.display = 'flex';
+            animal.style.display = 'block';
+        } else if (!filtroGato && !filtroCachorro){
+            animal.style.display = 'block';
         } else {
             animal.style.display = 'none';
         }
     });
 }
 
-
-//LOGOUT
-function logout() {
-    localStorage.clear(); 
-
-    window.location.href = "/adocaes/home.php";
+function handleEnterKey(event) {
+    if (event.key === 'Enter') {
+        filtrarPopups();
+    }
 }
-navbar()
-function navbar() {
-    console.log("function nav-bar")
-    const ong = localStorage.getItem("id_ong")
-    const user = localStorage.getItem("id_adotante")
 
-    console.log(ong, user);
+function filtrarPopups() {
+    var textoPesquisa = document.getElementById('barra-pesquisa').value.toLowerCase();
+    var popups = document.querySelectorAll('.popup-content');
 
-    if (ong !== null){
-        const navbarCadastro = document.getElementsByClassName('navbar-cadastro')[0]
-        navbarCadastro.style.display = "none";
-        const navbar = document.getElementsByClassName('navbar-adm')[0]
-        navbar.style.display = "block";
-    }
+    popups.forEach(function(popup) {
+        var animalCard = popup.parentElement.previousElementSibling;
+        var textoPopup = popup.textContent.toLowerCase();
+        if (textoPopup.includes(textoPesquisa)) {
+            animalCard.classList.add('corresponde-pesquisa');
+            animalCard.style.display = 'block';
+        } else {
+            animalCard.classList.remove('corresponde-pesquisa');
+            animalCard.style.display = 'none';
+        }
+    });
+}
 
-    if (user !== null){
-        const navbarCadastro = document.getElementsByClassName('navbar-cadastro')[0]
-        navbarCadastro.style.display = 'none';
-        const navbar = document.getElementsByClassName('navbar-perfil')[0]
-        navbar.style.display = 'block';
-    }
+// POP UP MAIS DETALHES
+// Função para mostrar o popup de detalhes
+function mostrarDetalhes(idPopup) {
+    const popup = document.getElementById(idPopup);
+
+    popup.style.display = "block";
+    document.body.classList.add('popup-aberto'); // Fecha o overflow do Body quando abrir o popup
+    popup.addEventListener('click', function(event) {
+        // Verifique se ocorreu clique dentro do PopUp ou fora
+        if (!event.target.closest('.popup-content')) {
+            // Se foi fora, então é fechado o opopup
+            fecharDetalhes(idPopup);
+        }
+    });
+    console.log("mostrarDetalhes - LIGOU\nOverFlow - Desligado");
+}
+
+// Função para fechar o popup de detalhes
+function fecharDetalhes(idPopup) {
+    const popup = document.getElementById(idPopup);
     
+    popup.style.display = "none";
+    document.body.classList.remove('popup-aberto'); // Remova a classe que fecha o overflow do Body quando fechar o popup
+    console.log("mostrarDetalhes - DESLIGOU\nOverFlow - Ligado");
 }

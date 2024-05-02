@@ -1,3 +1,7 @@
+<?php
+include_once("util_php/animais.php");
+header('Content-Type: text/html; charset=UTF-8');
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -18,11 +22,11 @@
 <body>
     <header id="siteHeader">
         <nav id="mainMenu">
-            <a href="home.html">
+            <a href="home.php">
                 <img src="imagens\logo.png" class="logo">
             </a>
             <a href="home.html">Página Inicial</a>
-            <a href="adotar/adotar.html">Adotar</a>
+            <a href="adotar/adotar.php">Adotar</a>
             <a href="#como-adotar">Como Adotar</a>
             <a href="#porque-adotar">Porque Adotar</a>
             <a href="ong/view/ongs.html">ONGs Parceiras</a>
@@ -106,124 +110,58 @@
                 </div>
     </div>
 
-<!--POP UP MAIS DETALHES (edgar)-->
-
-    <!-- COMEÇO CARROSSEL -->
-
+    <!-- Animal Carrossel -->
     <section id="animais-disponiveis-horizontal">
         <div class="banner" id="primeiro-banner">
             <h1>Adote um Amigo</h1>
             <p>Encontre seu companheiro perfeito e faça a diferença na vida de um animal.</p>
         </div>
         <div class="carrossel">
-            <div class="animal-carrossel">
-                <img src="Imagens/gato1.jpeg" alt="Gato">
-                <p class="nome-animal">Edgar </p>
-                <p>Gênero: Feminino</p>
-                <p>Cidade: São paulo - SP</p>
-                <div class="botao-mais-detalhes">
-                <button onclick="mostrarDetalhes()">Mais Detalhes</button>
-                </div>
-            </div>
-            <div class="animal-carrossel">
-                <img src="Imagens/cachorro2.jpeg" alt="Cachorro">
-                <p class="nome-animal">João</p>
-                <p>Gênero: Masculino</p>
-                <p>Cidade: Diadema - SP</p>
-                <div class="botao-mais-detalhes">
-                <button onclick="mostrarDetalhes('Cachorro 2')">Mais Detalhes</button>
-                </div>
-            </div>
-            <div class="animal-carrossel">
-                <img src="Imagens/gato3.jpeg" alt="Gato">
-                <p class="nome-animal">Simba</p>
-                <p>Gênero: Masculino</p>
-                <p>Cidade: São Paulo - SP</p>
-                <div class="botao-mais-detalhes">
-                <button onclick="mostrarDetalhes('Gato 3')">Mais Detalhes</button>
-                </div>
-            </div>
-            <div class="animal-carrossel">
-                <img src="Imagens/cachorro3.jpeg" alt="Cachorro">
-                <p class="nome-animal"> Max</p>
-                <p>Gênero: Masculino</p>
-                <p>Cidade: SBC - SP</p>
-                <div class="botao-mais-detalhes">
-                <button onclick="mostrarDetalhes('Cachorro 3')">Mais Detalhes</button>
-                </div>
-            </div>
-            <div class="animal-carrossel">
-                <img src="Imagens/gato5.jpeg" alt="Gato">
-                <p class="nome-animal"> Thor</p>
-                <p>Gênero: Masculino</p>
-                <p>Cidade: Santo André - SP</p>
-                <div class="botao-mais-detalhes">
-                <button onclick="mostrarDetalhes('Gato 5')">Mais Detalhes</button>
-                </div>
-            </div>
-            <div class="animal-carrossel">
-                <img src="Imagens/cachorro4.jpeg" alt="Cachorro">
-                <p class="nome-animal"> Thor</p>
-                <p>Gênero: Masculino</p>
-                <p>Cidade: São Paulo - SP</p>
-                <div class="botao-mais-detalhes">
-                <button onclick="mostrarDetalhes('Cachorro 4')">Mais Detalhes</button>
-                </div>
-            </div>
-            <div class="animal-carrossel">
-                <img src="Imagens/gato4.jpeg" alt="Gato">
-                <p class="nome-animal"> Zeus</p>
-                <p>Gênero: Masculino</p>
-                <p>Cidade: São Paulo - SP</p>
-                <div class="botao-mais-detalhes">
-                <button onclick="mostrarDetalhes('Gato 4')">Mais Detalhes</button>
-                </div>
-            </div>
-            <div class="animal-carrossel">
-                <img src="Imagens/cachorro5.jpeg" alt="Cachorro">
-                <p class="nome-animal"> Rocky</p>
-                <p>Gênero: Masculino</p>
-                <p>Cidade: São Paulo - SP</p>
-                <div class="botao-mais-detalhes">
-                <button onclick="mostrarDetalhes('Cachorro 5')">Mais Detalhes</button>
-                </div>
-            </div>
-            <div class="animal-carrossel">
-                <img src="Imagens/gato1.jpeg" alt="Gato">
-                <p class="nome-animal"> Luna</p>
-                <p>Gênero: Masculino</p>
-                <p>Cidade: São Paulo - SP</p>
-                <div class="botao-mais-detalhes">
-                <button onclick="mostrarDetalhes('Gato 1')">Mais Detalhes</button>
-                </div>
-            </div>
-            <div class="animal-carrossel">
-                <img src="Imagens/cachorro2.jpeg" alt="Cachorro">
-                <p class="nome-animal"> Bella</p>
-                <p>Gênero: Masculino</p>
-                <p>Cidade: São Paulo - SP</p>
-                <div class="botao-mais-detalhes">
-                <button onclick="mostrarDetalhes('Cachorro 2')">Mais Detalhes</button>
-                </div>
-            </div>
-            <div class="animal-carrossel">
-                <img src="Imagens/gato5.jpeg" alt="Gato">
-                <p class="nome-animal"> Mel </p>
-                <p>Gênero: Masculino</p>
-                <p>Cidade: São Paulo - SP</p>
-                <div class="botao-mais-detalhes">
-                <button onclick="mostrarDetalhes('Gato 5')">Mais Detalhes</button>
-                </div>
-            </div>
-            </div>
+            <?php
+            for ($i = 0; $i <= 12; $i++) {
+                echo '<div class="animal-carrossel">';
+                echo '<img src="'.(($animais[$i]['url'] !== "") ? $animais[$i]['url'] : (($animais[$i]['tipo'] === 'C') ? 'Imagens/cachorro1.jpeg' : 'Imagens/gato1.jpeg')).
+                '" alt="'.(($animais[$i]['tipo'] === 'C') ? 'Cachorro' : 'Gato').'">';
+                echo '<p class="nome-animal">'. $animais[$i]['nome'] .'</p>';
+                echo '<p>Gênero: '.(($animais[$i]['genero'] === 'F') ? 'Femea' : 'Macho').'</p>';
+                echo '<p>Cidade: '. $animais[$i]['cidade'] .' - '. $animais[$i]['estado'] .'</p>';
+                echo '<div class="botao-mais-detalhes">';
+                echo '<button onclick="mostrarDetalhes('.'\'popup'. $animais[$i]["id_Animal"] . '\')">Mais Detalhes</button>';
+                echo '</div>';
+                echo '</div>';
+            ?>
+            <?php
+                echo '<div id="popup'.$animais[$i]["id_Animal"] .'" class="popup">';
+                echo '<div class="popup-content">';
+                echo '<span class="fechar" onclick="fecharDetalhes('.'\'popup'. $animais[$i]["id_Animal"] . '\')">&times;</span>';
+                echo '<div class="imagem-animal">';
+                echo '<img src="'.(($animais[$i]['url'] !== "") ? $animais[$i]['url'] : (($animais[$i]['tipo'] === 'C') ? 'Imagens/cachorro1.jpeg' : 'Imagens/gato1.jpeg')).
+                '" alt="'.(($animais[$i]['tipo'] === 'C') ? 'Cachorro' : 'Gato').'">';
+                echo '</div>';
+                echo '<p>Nome: '. $animais[$i]['nome'] .'</p>';
+                echo '<p>Raça: '. $animais[$i]['raca'] .'</p>';
+                echo '<p>Data de nascimento: '. $animais[$i]['nascimento'] .'</p>';
+                echo '<p>Genero: '.(($animais[$i]['genero'] === 'F') ? 'Femea' : 'Macho').'</p>';
+                echo '<p>Porte: '.(($animais[$i]['porte'] === 'P') ? 'Pequeno' : (($animais[$i]['porte'] === 'M') ? 'Médio' : 'Grande')).'</p>';
+                echo '<p>Cor: '. $animais[$i]['cor'] .'</p>';
+                echo '<p>Castrado: '.(($animais[$i]['castrado'] === '1') ? 'Sim' : 'Não').'</p>';
+                echo '<p>Vacinas: '. $animais[$i]['vacinas'] .'</p>';
+                echo '<p>Observação: '. $animais[$i]['obs'] .'</p>';
+                echo '<p>ONG: '. $animais[$i]['ong'] .'</p>';
+                echo '<p>Cidade: '. $animais[$i]['cidade'] .'</p>';
+                echo '<p>Estado: '. $animais[$i]['estado'] .'</p>';
+                echo '<p>Telefone: '. $animais[$i]['telefone'] .'</p>';
+                echo '</div>';
+                echo '</div>';
+            }
+            ?>
         </div>
         
         <span class="material-symbols-outlined" id="prevBtn">arrow_back_ios</span>
         <span class="material-symbols-outlined" id="nextBtn">arrow_forward_ios</span>
 
-        <a href="/adocaes/adotar/adotar.html"><button class="botao-ver-mais">Ver Mais</button></a>
+        <a href="adotar/adotar.php"><button class="botao-ver-mais">Ver Mais</button></a>
     </section>
-
     <!-- FIM CAROSSEL -->
 
     <section id="como-adotar">
@@ -269,7 +207,7 @@
             </div>
             <img src="Imagens/modelo3.jpeg">
         </div>
-        <a href="adotar.html" class="faca-um-animal-feliz">Faça um animal feliz!</a>
+        <a href="adotar.php" class="faca-um-animal-feliz">Faça um animal feliz!</a>
     </section>
 
     <footer>

@@ -23,7 +23,7 @@
 
 <body>
 <div class="banner">
-    <img src="../imagens\logologin.png" class="logo-login">
+    <a href="../home.php"><img src="../imagens\logologin.png" class="logo-login"></a>
 </div>
 <div class="container">
     <form method="post" action="cad_adotante.php" id="formularioCadastro">
@@ -45,7 +45,7 @@
             <label for="">Url:</label><br>
             <input type="text" name="url_usuario" placeholder="Digite o url da sua imagem" class="input_maior"  required>
             <br>
-            <p>Ja possui cadastro? clique aqui para fazer <a href="../login/login.html">Login</a></p>
+            <p>Ja possui cadastro? clique aqui para fazer <a href="../login/login.html">Login</a> ou caso seja uma <a href="../ong/cadastro/cadastro_ong.html">ong</a></p><!--deixei na mesma linha pq quebra o formulario quando tem quebra de linha-->
             <button type="button" onclick="nextStep(1)" class="botao">Próximo</button>
         </div>
         <div id="step2" class="hidden">
