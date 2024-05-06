@@ -63,3 +63,43 @@ function logout() {
 
     window.location.href = "/adocaes/home.php";
 }
+
+function recuperaAnimais() {
+    console.log("Recuperando animais...");
+    var idOng = localStorage.getItem('id_ong');
+
+    //FRONT END PERGUNTA EM BINARIO ------> AJAX TRADUZ PARA O BACKEND EM LINGUAGEM NAO BURRA ---->  BACKEND ENTENDE TUDO E REPASSA de vota qualquer msg que queira
+    
+    if (idOng) {
+        console.log("Request...");
+        $.ajax({
+            url: 'busca_animais.php',
+            type: 'POST',
+            data: {id_ong: idOng},
+            success: function(response) {
+                console.log("Response: ", response);
+                if (response) {
+                    var allAnimais = JSON.parse(response);
+                    return allAnimais;
+                }
+                return;
+            },
+            error: function(xhr, status, error) {
+                console.error('Erro ao recuperar animais: ', error);
+            }
+        });
+    } else {
+        console.error('ID_ONG não localizado.');
+    }
+}
+
+recuperaAnimais();
+
+
+function criaCardAnimal(){
+
+    var allAnimais = recuperaAnimais();
+
+    // compõe o card com os valores de allAnimais.
+
+}

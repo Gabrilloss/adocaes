@@ -26,6 +26,7 @@
         <form method="post" action="cadAnimal.php">
             <h1>CADASTRAR ANIMAL</h1>
             <div class="parte1">
+                <input type="hidden" name="id_ong" id="id_ong">
                 <label for="">Nome:</label>
                 <input type="text" name="nomeAnimal" placeholder="Digite seu nome" class="input_maior" required>
                 <br>
@@ -70,16 +71,6 @@
                     </section>
                 </div>
                 <br><br>
-                <label for="ONGs_idONG">ONGs:</label><br>
-                <select name="ONGs_idONG" id="ONGs_idONG" required>
-                    <option value="0" selected disabled>Selecione uma ong: </option>
-                    <option value="1">Amor pelos patinhas</option>
-                    <option value="2">Protetores do Bichano</option>
-                    <option value="3">Anjos de Quatro Patas</option>
-                    <option value="4">Vira-Latas Unidos</option>
-                    <option value="5">Adote um amigo</option>
-                </select>
-                <br><br>
                 <label for="">Vacinas:</label><br />
                 <input type="text" name="vacinas" placeholder="Informe vacinas de seu animal" class="input_maior"  required>
                 <br>
@@ -107,6 +98,7 @@
     <footer>
         <p>&copy; 2024 Adocães - Todos os direitos reservados</p>
     </footer>
+    <script src="cadAnimal.js"></script>
 </body>
 
 </html>

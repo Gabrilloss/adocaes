@@ -1,8 +1,3 @@
-<?php
-include_once("../util_php/animais.php");
-header('Content-Type: text/html; charset=UTF-8');
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -100,48 +95,9 @@ header('Content-Type: text/html; charset=UTF-8');
         </div>
 
     </div>
-
-    <div class="container-animais">
-    <div class ="todos-animais">
-            <?php
-            foreach ($animais as $animal) {
-                echo '<div class="animal-card corresponde-pesquisa">';
-                echo '<img src="'.(($animal['url'] !== "") ? $animal['url'] : (($animal['tipo'] === 'C') ? '../Imagens/cachorro2.jpeg' : '../Imagens/gato6.jpeg')).
-                '" alt="'.(($animal['tipo'] === 'C') ? 'Cachorro' : 'Gato').'">';
-                echo '<p class="nome-animal">'. $animal['nome'] .'</p>';
-                echo '<p>Gênero: '. (($animal['genero'] === 'F') ? 'Fêmea' : 'Macho') .'</p>';
-                echo '<p>Cidade: '. $animal['cidade'] .' - '. $animal['estado'] .'</p>';
-                echo '<div class="botao-mais-detalhes">';
-                echo '<button onclick="mostrarDetalhes(\'popup'. $animal["id_Animal"] . '\')">Mais Detalhes</button>';
-                echo '</div>';
-                echo '</div>';
-            ?>
-            <?php
-                echo '<div id="popup'.$animal["id_Animal"] .'" class="popup">';
-                echo '<div class="popup-content">';
-                echo '<span class="fechar" onclick="fecharDetalhes('.'\'popup'. $animal["id_Animal"] . '\')">&times;</span>';
-                echo '<div class="imagem-animal">';
-                echo '<img src="'.$animal['url'].'" alt="Imagem do Animal">';
-                echo '</div>';
-                echo '<p>Nome: '. $animal['nome'] .'</p>';
-                echo '<p>Raça: '. $animal['raca'] .'</p>';
-                echo '<p>Data de nascimento: '. $animal['nascimento'] .'</p>';
-                echo '<p>Genero: '.(($animal['genero'] === 'F') ? 'Femea' : 'Macho').'</p>';
-                echo '<p>Porte: '.(($animal['porte'] === 'P') ? 'Pequeno' : (($animal['porte'] === 'M') ? 'Médio' : 'Grande')).'</p>';
-                echo '<p>Cor: '. $animal['cor'] .'</p>';
-                echo '<p>Castrado: '.(($animal['castrado'] === '1') ? 'Sim' : 'Não').'</p>';
-                echo '<p>Vacinas: '. $animal['vacinas'] .'</p>';
-                echo '<p>Observação: '. $animal['obs'] .'</p>';
-                echo '<p>ONG: '. $animal['ong'] .'</p>';
-                echo '<p>Cidade: '. $animal['cidade'] .'</p>';
-                echo '<p>Estado: '. $animal['estado'] .'</p>';
-                echo '<p>Telefone: '. $animal['telefone'] .'</p>';
-                echo '</div>';
-                echo '</div>';
-            }
-            ?>
-        </div>
+    <button class="botao-add"> <a href="../cadastro_animal/cadastroAdocao.html">Adicionar Animal </a></button>
     </section>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="scriptadm.js"></script>
     <script src="../local_storage.js"></script>
 </body>

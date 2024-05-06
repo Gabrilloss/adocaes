@@ -11,7 +11,7 @@ $castrado = $_POST['castrado'];
 $vacinas = $_POST['vacinas'];
 $observacao = $_POST['observacao'];
 $tipo = $_POST['tipo'];
-$ONGs_idONG = $_POST['ONGs_idONG'];
+$ONGs_idONG = $_POST['id_ong'];
 $url = $_POST['URLs_idURL'];
 
 mysqli_begin_transaction($conn);
