@@ -24,9 +24,17 @@ header('Content-Type: text/html; charset=UTF-8');
             <a href="../home.php#como-adotar">Como Adotar</a>
             <a href="../home.php#porque-adotar">Porque Adotar</a>
             <a href="../ong/view/ongs.php">ONGs Parceiras</a>
-            <nav class="profile-nav">
-                <a href="#" onclick="toggleProfile()"><span id ='person' class="material-symbols-outlined"> person</span> Perfil</a>
-            </nav>
+            <div class="profile-nav">
+                <div class="navbar-cadastro">
+                    <a href="/adocaes/adotante/cadastro_usuario.html">Cadastre-se</a>
+                </div>
+                <div class="navbar-adm">
+                    <a href="/adocaes/administracao/administracao.html" ><span id ='person' class="material-symbols-outlined">assignment</span> Administração</a>
+                </div>
+                <div class="navbar-perfil">
+                    <a onclick="toggleProfile()"><span id ='person' class="material-symbols-outlined"> person</span>Perfil</a>
+                </div>
+            </div>
         </nav>
     </header>
 

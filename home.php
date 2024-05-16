@@ -45,70 +45,56 @@ header('Content-Type: text/html; charset=UTF-8');
     </header>    
 
     <div class="overlay" id="overlay" onclick="closeProfile()" style="display:none;"></div>
+        <div class="profile-sidebar" id="profileSidebar" style="right: -100%;">
+            <form action="edit_form.php" method="post" id="updateForm">
+                <div class="close-button" onclick="closeProfile()">X</div>
+                    <div class="profile-content-top">
+                        <div class="profile-picture-container">
+                            <input type="file" id="uploadFile" style="display: none;" accept="image/*" onchange="mostrarImagemSelecionada()">
+                            <img id="profilePicture" alt="Imagem do Animal">
+                        </div>
+                        <div class ="perfil-text">
+                            <label for="nome"><span class = "nome" id="nome" name="nome"></span></label>
+                            <br>
+                            <h3>Adotante</h3>
+                            <label for="uploadFile" class="alterar-foto">Alterar Foto</label>
+                        </div>
+                    </div>
+                    <input type="hidden" id="idAdotante" name="idAdotante">
+                    <div class="topicos-perfil">
+                        <label for="sobre-mim">Sobre Mim</label>
+                        <div class="input-botao">
+                        <textarea maxlength="120" placeholder="Fale sobre você..." readonly></textarea>
+                        <span id = 'stylus' class="material-symbols-outlined">stylus</span>
+                    </div>
+                    <label for="email">E-mail</label>
+                    <div class="input-botao">
+                        <input type="email" id="email" name="email" readonly>
+                        <span id = 'stylus' class="material-symbols-outlined">stylus</span>
+                    </div>
+                    <label for="telefone">Telefone</label>
+                    <div class="input-botao">
+                        <input type="telefone" id="telefone" name="telefone" readonly>
+                        <span id = 'stylus' class="material-symbols-outlined" type="submit" >stylus</span>
+                    </div>
+                    <label for="cpf">CPF</label>
+                    <div class="input-botao">
+                        <input type="cpf" id="cpf" name="cpf" >
+                    </div>
 
-    <div class="profile-sidebar" id="profileSidebar" style="right: -100%;">
-        <div class="close-button" onclick="closeProfile()">X</div>
-        <div class="profile-content-top">
-            <div class="profile-picture-container">
-                <input type="file" id="uploadFile" style="display: none;" accept="image/*" onchange="mostrarImagemSelecionada()">
-                <img id="profilePicture" alt="Imagem do Animal">
-            </div>
-            <div class ="perfil-text">
-                <span class = "nome"></span>
-                <br>
-                <h3>Adotante</h3>
-                <label for="uploadFile" class="alterar-foto">Alterar Foto</label>
-            </div>
-        </div>
-        <div class="topicos-perfil">
-            
-            <label for="sobre-mim">Sobre Mim</label>
-            <div class="input-botao">
-            <textarea maxlength="120" placeholder="Fale sobre você..." readonly></textarea>
-            <span id = 'stylus' class="material-symbols-outlined">stylus</span>
-            </div>
+                    </br>
+                    </br>
+                    </br>
 
-            
-            <label for="email">E-mail</label>
-            <div class="input-botao">
-            <input type="email" id="email" name="email" readonly>
-            <span id = 'stylus' class="material-symbols-outlined">stylus</span>
-            </div>
-
-            
-            <label for="telefone">Telefone</label>
-            <div class="input-botao">
-            <input type="telefone" id="telefone" name="telefone" readonly>
-            <span id = 'stylus' class="material-symbols-outlined">stylus</span>
-            </div>
-
-            
-            <label for="cpf">CPF</label>
-            <div class="input-botao">
-            <input type="cpf" id="cpf" name="cpf" readonly>
-            </div>
+                    <button name= "update" id = "update" type="submit">update</button>
+                </div>
+            </form>
 
             <div class="botoes-perfil">
-            <button onclick="openPopup()" class="botao-alterar-senha">Alterar Senha</button>
-            <a ><button class="botao-sair" onclick="logout()">Sair</button></a>
+                <button onclick="openPopup()" class="botao-alterar-senha">Alterar Senha</button>
+                <a ><button class="botao-sair" onclick="logout()">Sair</button></a>
             </div>
-
-            <!--POPUP-->
-                <div id="popup" class="popup">
-                        <form class="formulario">
-                            <span onclick="closePopup()" style="float:right;cursor:pointer;">&times;</span>
-                            <h1>Redefinir Senha</h1>
-                            <div class="input-group">
-                                <label for="username">Senha Atual:</label>
-                                <input type="text" id="username" name="username" required>
-                                <label for="password">Nova Senha:</label>
-                                <input type="password" id="password" name="password" required>
-                            </div>
-                            <button type="submit">Salvar</button>
-                        </form>
-                    </div>
-                </div>
-    </div>
+        </div>
 
     <!-- Animal Carrossel -->
     <section id="animais-disponiveis-horizontal">

@@ -29,8 +29,8 @@ function info_ong(){
         document.getElementById('cnpj').value = infoOng.cnpj || '';
         document.getElementById('telefone').value = infoOng.telefone || '';
         if (infoOngString !== true ){
-        document.querySelector('.nome').textContent = infoOng.nome || 'Nome';
-        hidden.style.display = 'none';
-    }
+            document.querySelector('.nome').textContent = infoOng.nome || 'Nome';
+            hidden.style.display = 'none';
+        }
     }
 }

@@ -243,10 +243,48 @@ function info_usuario(){
 
         var infoUsuario = JSON.parse(infoUsuarioString);
         
+
         document.getElementById('email').value = infoUsuario.email || '';
         document.getElementById('cpf').value = infoUsuario.cpf || '';
         document.getElementById('profilePicture').src = infoUsuario.imagem || 'default.jpg';
         document.getElementById('telefone').value = infoUsuario.telefone || '';
         document.querySelector('.nome').textContent = infoUsuario.nome || 'Nome';
+        
     }
 }
+
+updateGetById()
+
+function updateGetById(){
+    document.getElementById('updateForm').addEventListener('submit', function() {
+        var idAdotante = localStorage.getItem('id_adotante');
+        console.log('ID_ADOTANTE: ', idAdotante)
+        document.getElementById('idAdotante').value = idAdotante;
+    });
+}
+
+//  document.getElementById('updateForm').addEventListener('submit', function(event) {
+//      event.preventDefault(); // Impede o envio do formulário de maneira tradicional
+
+
+//      const email = document.getElementById('email').value;
+//     const idAdotante = localStorage.getItem('id_adotante');
+//      const data = {
+//          email: email,
+//          id: idAdotante
+//      };
+//      console.log(data);
+//      fetch('edit_form.php')
+//      .then(response => {
+//         if (!response.ok) throw new Error('Network response was not ok');
+//         return response.text(); // Convert to plain text to inspect
+//       })
+//      .then(text => {
+//         if (text.trim() === '') {
+//           console.log('Response is empty');
+//           return {}; // Return an empty object or handle accordingly
+//         }
+//         return JSON.parse(text);
+//       })
+//      .catch(error => console.error('Error:', error));
+//  });

@@ -19,7 +19,7 @@ function isEmail($username){
 
 function login($conn, $username, $senha){
     try {
-if(isEmail($username)){
+        if(isEmail($username)){
             // EMAIL
             $script_recupera_adotante = 
                 "SELECT idAdotantes, email, senha, nomeAdotante, CPF
@@ -39,6 +39,7 @@ if(isEmail($username)){
                 $cpf = $row['CPF'];
 
                 $info_usuario = array(
+                    'id' => $idAdotantes,
                     'nome' => $nome,
                     'email' => $email,
                     'cpf' => $cpf,
